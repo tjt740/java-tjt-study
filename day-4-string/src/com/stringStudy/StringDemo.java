@@ -64,7 +64,6 @@ class StringDemo3{
         if(arr.length == 0){
             return "[]";
         }
-
         String result = "[";
         for (int i = 0; i < arr.length; i++) {
             if(i== arr.length-1){
