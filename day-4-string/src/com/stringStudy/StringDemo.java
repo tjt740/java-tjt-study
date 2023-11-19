@@ -75,3 +75,51 @@ class StringDemo3{
         return result;
     }
 }
+
+
+class StringDemo4 {
+    public static void main(String[] args) {
+        /*需求：
+            键盘接受一个字符串，程序判断出该字符串是否是对称字符串，并在控制台打印是或不是？
+            对称字符串：123321、111
+            非对称字符串：123123
+        */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入字符串");
+        String str = sc.next();
+        // 进行字符串倒序
+        String reverseStr = new StringBuilder().append(str).reverse().toString();
+        if (str.equals(reverseStr)) {
+            System.out.println("是对称字符串");
+        } else {
+            System.out.println("不是对称字符串");
+        }
+    }
+}
+
+class StringDemo5 {
+    public static void main(String[] args) {
+        /*
+        * 需求：定义一个方法，把int数组中的数据按照指定的格式拼接成一个字符串返回。
+            调用该方法，并在控制台输出结果。
+            例如：数组为int[]arr={1,2,3}；
+            执行方法后的输出结果为：[1，2，3]
+        * */
+
+        int[] arr = {1, 2, 3};
+        String str = generateArray(arr);
+        System.out.println(str);
+    }
+
+    public static String generateArray(int[] arr) {
+        StringBuilder dataArr = new StringBuilder("[");
+        for (int i = 0; i < arr.length; i++) {
+            if (i == arr.length - 1) {
+                dataArr.append(arr[i]).append("]");
+                break;
+            }
+            dataArr.append(arr[i]).append(",");
+        }
+        return dataArr.toString();
+    }
+}
