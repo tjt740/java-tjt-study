@@ -1,6 +1,7 @@
 package com.stringStudy;
 
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class StringDemo {
     public static void main(String[] args) {
@@ -121,5 +122,22 @@ class StringDemo5 {
             dataArr.append(arr[i]).append(",");
         }
         return dataArr.toString();
+    }
+}
+
+class StringDemo6 {
+    public static void main(String[] args) {
+        // 创建一个对象，并指定间隔符号
+        StringJoiner sj = new StringJoiner(",");
+        // 通过add添加数据
+        sj.add("hello").add("world");
+        System.out.println(sj);// hello,world;
+
+        StringJoiner sj2 = new StringJoiner("---", "【", "】");
+        sj2.add("谭金涛").add("戚思宁");
+        System.out.println(sj2);//【谭金涛---戚思宁】
+
+        System.out.println(sj2.toString());//【谭金涛---戚思宁】
+        System.out.println(sj2.length());// 11
     }
 }
