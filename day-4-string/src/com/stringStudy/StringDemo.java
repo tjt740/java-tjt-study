@@ -35,13 +35,13 @@ class StringDemo2 {
             // 大写英文判断
             if (ch >= 'A' && ch <= 'Z') {
                 bigEngCount++;
-            // 小写英文判断
+                // 小写英文判断
             } else if (ch >= 'a' && ch <= 'z') {
                 smallEngCount++;
-            // 数字判断
+                // 数字判断
             } else if (ch >= '0' && ch <= '9') {
                 numberCount++;
-            // 其他字符统计
+                // 其他字符统计
             } else {
                 otherCount++;
             }
@@ -55,23 +55,24 @@ class StringDemo2 {
 }
 
 
-class StringDemo3{
+class StringDemo3 {
     public static void main(String[] args) {
-        String[] arr = {"hello","world","java"};
+        String[] arr = {"hello", "world", "java"};
         String str = generateArray(arr);
         System.out.println(str);
     }
-    public static String generateArray(String[] arr){
-        if(arr.length == 0){
+
+    public static String generateArray(String[] arr) {
+        if (arr.length == 0) {
             return "[]";
         }
         String result = "[";
         for (int i = 0; i < arr.length; i++) {
-            if(i== arr.length-1){
-                result += arr[i]+"]";
+            if (i == arr.length - 1) {
+                result += arr[i] + "]";
                 break;
             }
-            result += arr[i]+",";
+            result += arr[i] + ",";
         }
         return result;
     }
@@ -139,5 +140,88 @@ class StringDemo6 {
 
         System.out.println(sj2.toString());//【谭金涛---戚思宁】
         System.out.println(sj2.length());// 11
+    }
+}
+
+class StringDemo7 {
+    public static void main(String[] args) {
+    /*
+        键盘录入一个字符串，
+        要求1：长度为小于等于9
+        要求2：只能是数字，将内容变成罗马数字
+        下面是阿拉伯数字跟罗马数字的对比关系：
+        I-1、II-2、IⅢI-3、IⅣ-4、V -5、VI-6、VI-7、VII-8、IⅨ-9
+        注意点：
+        罗马数字里面是没有0的
+        如果键盘录入的数字包含0，可以变成””（长度为0的字符串)
+    */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入数字");
+        String str = sc.next();
+
+        // 进行是否是数字判断
+        if (str.matches("[0-9]+") && str.length() <= 9) {
+            System.out.println("是数字且长度小于等于9");
+            StringBuilder sb = new StringBuilder();
+            // 进行格式化（用逗号隔开，开始是【，结束是】）
+            StringJoiner sj = new StringJoiner(",", "【", "】");
+            for (int i = 0; i < str.length(); i++) {
+                // ascll码 0 = 48 ；1=49 ,所以 - 48 = 对应的数字
+                // 转数字（1）
+                // int number = Integer.parseInt(String.valueOf(str.charAt(i)));
+                // 转数字（2）
+                int number = str.charAt(i) - 48;
+                // StringJoiner塞入数据
+                sj.add(changeLuoMa(number));
+            }
+            // 结果
+            System.out.println("结果：" + sj);// 【Ⅴ,Ⅵ,Ⅶ,Ⅶ】
+        } else {
+            System.out.println("字符应为数字且字符长度应小于等于9");
+        }
+
+    }
+
+    public static String changeLuoMa(int number) {
+        String[] enumArr = {"", "Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ", "Ⅸ"};
+        return enumArr[number];
+    }
+}
+
+class StringDemo8 {
+    // 定义全局变量就可以了，并且不能作为方法参数
+    private static int count = 0;
+
+    public static void main(String[] args) {
+        /*
+         调整字符串
+            给定两个字符串，A（abcde）和B（cdeba）。
+            A的旋转操作就是将A最左边的字符移动到最右边。
+            例如，若A='abcde'，在移动一次之后结果就是'bcdea'。
+            如果在若干次调整操作之后，A能变成B，那么返回True。
+            如果不能匹配成功，则返回false。
+        */
+
+        // 1. 定义两个字符串
+        String a = "abcde";
+        String b = "cdeab";
+
+        boolean result = rotateString(a, b);
+        System.out.println("count:" + count);
+        System.out.println("调整字符串:" + result);
+    }
+
+    public static Boolean rotateString(String A, String B) {
+        String str = "";
+        for (int i = 0; i < A.length(); i++) {
+            // 拼接字符串
+            str = A.substring(i) + A.substring(0, i);
+            count++;
+            if (str.equals(B)) {
+                return true;
+            }
+        }
+        // 如果所有情况都不一样，就返回false
+        return false;
     }
 }
