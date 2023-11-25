@@ -1,5 +1,6 @@
 package com.stringStudy;
 
+import java.util.Random;
 import java.util.Scanner;
 import java.util.StringJoiner;
 
@@ -224,4 +225,46 @@ class StringDemo8 {
         // 如果所有情况都不一样，就返回false
         return false;
     }
+}
+
+class StringDemo9 {
+    public static void main(String[] args) {
+        /*
+        *生成验证码
+            内容：可以是小写字母，也可以是大写字母，还可以是数字。
+            规则：
+            1.长度为5
+            2.内容中是四位字母，1位数字。
+            3.其中数字只有1位，但是可以出现在任意的位置。
+        * */
+        String verificationCode = generateVerificationCode();
+        System.out.println("生成的验证码是: " + verificationCode);
+    }
+
+    // 生成验证码方法
+    public static String generateVerificationCode() {
+        Random random = new Random();
+        StringBuilder code = new StringBuilder();
+
+        // 生成四位字母（包括大小写）
+        for (int i = 0; i < 4; i++) {
+            // 随机boolean
+            char randomChar;
+            if (random.nextBoolean()) {
+                randomChar = (char) (random.nextInt(26) + 'a'); // 生成小写字母
+            } else {
+                randomChar = (char) (random.nextInt(26) + 'A'); // 生成大写字母
+            }
+            code.append(randomChar);
+        }
+
+        // 生成一位数字的位置
+        int digitPosition = random.nextInt(5); // 0到4之间的随机数
+
+        // 插入数字到随机位置
+        code.insert(digitPosition, random.nextInt(10)); // 插入0到9之间的随机数字
+
+        return code.toString();
+    }
+
 }
