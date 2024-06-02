@@ -34,9 +34,7 @@ public class StudentDemo {
             students = new Student[students.length + 1];
 
             // 重新赋值
-            for (int i = 0; i < record.length; i++) {
-                students[i] = record[i];
-            }
+            System.arraycopy(record, 0, students, 0, record.length);
             students[students.length - 1] = newStudent;
 
             for (int i = 0; i < students.length; i++) {

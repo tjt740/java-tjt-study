@@ -5,7 +5,7 @@ public class StringStudy {
         String str1 = "hello";
         String str1_1 = "hello";
 //        str1_1 == str1; // true;
-        String str2 = new String("hello");
+        String str2 = "hello";
 
         boolean result = str1.equals(str2); // true (比较的是内容)
         boolean result2 = str1.equalsIgnoreCase(str2); // true (忽略大小写)
@@ -38,10 +38,8 @@ class StringStudy3 {
 
 class StringStudy4 {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder("hello");
         String str = "world";
-        sb.append(str);
-        System.out.println(sb); // helloworld
+        System.out.println("hello" + str); // helloworld
 
         StringBuilder sb2 = new StringBuilder("1234");
         sb2.append(5678).reverse();

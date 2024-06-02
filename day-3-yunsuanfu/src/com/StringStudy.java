@@ -5,7 +5,7 @@ public class StringStudy {
         String str1 = "hello";
         String str1_1 = "hello";
 //        str1_1 == str1; // true;
-        String str2 = new String("hello");
+        String str2 = "hello";
 
         boolean result = str1.equals(str2); // true (比较的是内容)
         boolean result2 = str1.equalsIgnoreCase(str2); // true (忽略大小写)

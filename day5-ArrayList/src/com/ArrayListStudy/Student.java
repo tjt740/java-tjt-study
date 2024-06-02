@@ -2,9 +2,9 @@ package com.ArrayListStudy;
 
 public class Student {
 
-    private String name;
-    private int age;
-    private int tall;
+    private final String name;
+    private final int age;
+    private final int tall;
 
     public Student(String name, int age, int tall) {
         this.name = name;

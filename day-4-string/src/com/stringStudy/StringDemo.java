@@ -139,7 +139,7 @@ class StringDemo6 {
         sj2.add("谭金涛").add("戚思宁");
         System.out.println(sj2);//【谭金涛---戚思宁】
 
-        System.out.println(sj2.toString());//【谭金涛---戚思宁】
+        System.out.println(sj2);//【谭金涛---戚思宁】
         System.out.println(sj2.length());// 11
     }
 }

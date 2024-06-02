@@ -3,7 +3,7 @@ package com.testdemo;
 import java.util.Random;
 
 public class Player {
-    private String name;
+    private final String name;
     private int health;
 
     public Player(String name, int health) {

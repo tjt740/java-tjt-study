@@ -25,9 +25,9 @@ class LogicoperatorDemo1 {
     public static void main(String[] args) {
         boolean a = true;
         String b = "你好";
-        System.out.println(true && true);
-        System.out.println(false && true);
-        System.out.println(false || true);
+        System.out.println(true);
+        System.out.println(false);
+        System.out.println(true);
     }
 
 }
